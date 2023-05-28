@@ -39,23 +39,23 @@ console.log(userInput);
                 })
 
 
-                var temperature = weatherData.main.temp;
-                var humidity = weatherData.main.humidity;
-                var wind = weatherData.wind.speed;
-                var city = weatherData.name;
+                // var temperature = weatherData.main.temp;
+                // var humidity = weatherData.main.humidity;
+                // var wind = weatherData.wind.speed;
+                // var city = weatherData.name;
 
-                var cardEl = document.createElement('div');
-                var cardBody = document.createElement('div');
-                var cardTitle = document.createElement('h3');
-                var cardText = document.createElement('p');
+                // var cardEl = document.createElement('div');
+                // var cardBody = document.createElement('div');
+                // var cardTitle = document.createElement('h3');
+                // var cardText = document.createElement('p');
                 
                   
-                cardTitle = city;
-                cardText = temperature, humidity, wind;
+                // cardTitle = city;
+                // cardText = temperature, humidity, wind;
 
-                cardEl.appendChild(cardBody);
-                cardBody.append(cardTitle, cardText);
-                resultsContainer.appendChild(cardEl);
+                // cardEl.appendChild(cardBody);
+                // cardBody.append(cardTitle, cardText);
+                // resultsContainer.appendChild(cardEl);
 
 
 
