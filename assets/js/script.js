@@ -4,14 +4,16 @@ var fiveDayWeather = document.getElementById('five-day');
 var searchForm = document.getElementById('search-form');
 var searchedEl = document.getElementById('searched');
 var resultsContainer = document.getElementById('results')
+var currentCity = document.getElementById('city')
+var currentCityWeather = document.getElementById('cityweather')
+var forecastcity = document.getElementById('5daycurrentcity')
 
 
 var handleSearch = function(event) {
     event.preventDefault();
-    resultsContainer.innerHTML= null;
 
-var userInput = qInput.value;
-console.log(userInput);
+    var userInput = qInput.value;
+    console.log(userInput);
 
     var firstAPIURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + userInput + '&limit=1&appid=c055c2d07b3173d39c878322108c0189'
     
@@ -36,27 +38,20 @@ console.log(userInput);
                 .then(function(weatherData) {
                     // console.log(weatherData);
                     console.log('Temp' + ' ' + weatherData.main.temp + '°F','Humidity' + ' ' + weatherData.main.humidity + ' ' + '%','Wind' + ' ' + weatherData.wind.speed + ' ' +'MPH', weatherData.name);
-                })
-
-
-                // var temperature = weatherData.main.temp;
-                // var humidity = weatherData.main.humidity;
-                // var wind = weatherData.wind.speed;
-                // var city = weatherData.name;
-
-                // var cardEl = document.createElement('div');
-                // var cardBody = document.createElement('div');
-                // var cardTitle = document.createElement('h3');
-                // var cardText = document.createElement('p');
                 
-                  
-                // cardTitle = city;
-                // cardText = temperature, humidity, wind;
 
-                // cardEl.appendChild(cardBody);
-                // cardBody.append(cardTitle, cardText);
-                // resultsContainer.appendChild(cardEl);
 
+                var temperature = weatherData.main.temp;
+                var humidity = weatherData.main.humidity;
+                var wind = weatherData.wind.speed;
+                var city = weatherData.name;
+                console.log(temperature, humidity, wind, city);
+
+                currentCity.textContent = city
+                currentCityWeather.textContent ='Temp: ' + temperature + '°F' + '   ' + 'Wind: ' + wind + 'MPH' + '  ' + 'Humidity: ' + humidity + '%' 
+                searchedEl.textContent = city
+                forecastcity.textContent = city
+            })
 
 
 
