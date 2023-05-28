@@ -1,13 +1,14 @@
 var qInput = document.getElementById('q');
 var currentWeather = document.getElementById('current-weather');
 var fiveDayWeather = document.getElementById('five-day');
-var searchForm = document.getElementById('search-form')
-var searchedEl = document.getElementById('searched')
-
+var searchForm = document.getElementById('search-form');
+var searchedEl = document.getElementById('searched');
+var resultsContainer = document.getElementById('results')
 
 
 var handleSearch = function(event) {
     event.preventDefault();
+    resultsContainer.innerHTML= null;
 
 var userInput = qInput.value;
 console.log(userInput);
@@ -36,6 +37,28 @@ console.log(userInput);
                     // console.log(weatherData);
                     console.log('Temp' + ' ' + weatherData.main.temp + '°F','Humidity' + ' ' + weatherData.main.humidity + ' ' + '%','Wind' + ' ' + weatherData.wind.speed + ' ' +'MPH', weatherData.name);
                 })
+
+
+                var temperature = weatherData.main.temp;
+                var humidity = weatherData.main.humidity;
+                var wind = weatherData.wind.speed;
+                var city = weatherData.name;
+
+                var cardEl = document.createElement('div');
+                var cardBody = document.createElement('div');
+                var cardTitle = document.createElement('h3');
+                var cardText = document.createElement('p');
+                
+                  
+                cardTitle = city;
+                cardText = temperature, humidity, wind;
+
+                cardEl.appendChild(cardBody);
+                cardBody.append(cardTitle, cardText);
+                resultsContainer.appendChild(cardEl);
+
+
+
 
             var thirdAPIURL = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=c055c2d07b3173d39c878322108c0189&units=imperial'
 
