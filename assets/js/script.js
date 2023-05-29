@@ -58,7 +58,7 @@ var handleSearch = function(event) {
 
             var thirdAPIURL = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=c055c2d07b3173d39c878322108c0189&units=imperial'
 
-            // console.log(thirdAPIURL,'5day');
+            console.log(thirdAPIURL,'5day');
 
             fetch(thirdAPIURL)
             .then(function(response) {
@@ -66,8 +66,10 @@ var handleSearch = function(event) {
             })
             .then(function(forecastData) {
                 for (let i = 0; i < 5; i++) {
-                    var card = forecastCards[i];
-                    var forecast = forecastData.list[i];
+//                    var card = forecastCards[i];
+                    // var forecast = forecastData.list[i];
+
+                    console.log(forecastData);
 
                     var title = card.querySelector('.card-title');
                     var subtitle = card.querySelector('.card-subtitle');
@@ -78,7 +80,7 @@ var handleSearch = function(event) {
                     title.textContent = 'Date: ' + forecast.dt_txt.slice(5, 10);
                     subtitle.textContent = 'Wind: ' + forecast.wind.speed + ' MPH';
                     text.textContent = 'Humidity: ' + forecast.main.humidity + '%, Temp: ' + forecast.main.temp + '°F';
-                    console.log(forecast.dt_txt, "wokring");
+                    // console.log(forecast.dt_txt, "wokring");
 
                 }
             });
