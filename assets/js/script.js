@@ -16,7 +16,7 @@ var handleSearch = function(event) {
     var userInput = qInput.value;
     console.log(userInput);
 
-    var firstAPIURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + userInput + '&limit=1&appid=c055c2d07b3173d39c878322108c0189'
+    var firstAPIURL = 'https://api.openweathermap.org/geo/1.0/direct?q=' + userInput + '&limit=1&appid=c055c2d07b3173d39c878322108c0189'
     
     
     fetch(firstAPIURL)
