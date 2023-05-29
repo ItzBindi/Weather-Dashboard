@@ -7,6 +7,7 @@ var resultsContainer = document.getElementById('results')
 var currentCity = document.getElementById('city')
 var currentCityWeather = document.getElementById('cityweather')
 var forecastcity = document.getElementById('5daycurrentcity')
+var forecastCards = document.querySelectorAll('#five-day .card');
 
 
 var handleSearch = function(event) {
@@ -60,21 +61,29 @@ var handleSearch = function(event) {
             // console.log(thirdAPIURL,'5day');
 
             fetch(thirdAPIURL)
-                .then(function(response) {
-                    return response.json();
-                })
-                .then(function(forecastData) {
-                    // console.log(forecastData);
-                    
-                    for (let i = 0; i < 5; i++) {
-                        var list = forecastData.list[i];
-                        // console.log(list, '5 days ');
-                        console.log('Date' + ' ' + list.dt_txt,'Wind' + ' ' + list.wind.speed + ' ' + 'MPH','Humidity' + ' ' + list.main.humidity + ' ' + '%','Temp' + ' ' + list.main.temp + '°F');
-                    }
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(forecastData) {
+                for (let i = 0; i < 5; i++) {
+                    var card = forecastCards[i];
+                    var forecast = forecastData.list[i];
 
-                })
-        })
-}
+                    var title = card.querySelector('.card-title');
+                    var subtitle = card.querySelector('.card-subtitle');
+                    var text = card.querySelector('.card-text');
+                    
+
+
+                    title.textContent = 'Date: ' + forecast.dt_txt.slice(5, 10);
+                    subtitle.textContent = 'Wind: ' + forecast.wind.speed + ' MPH';
+                    text.textContent = 'Humidity: ' + forecast.main.humidity + '%, Temp: ' + forecast.main.temp + '°F';
+                    console.log(forecast.dt_txt, "wokring");
+
+                }
+            });
+    });
+};
 
 searchForm.addEventListener('submit', handleSearch);
 
