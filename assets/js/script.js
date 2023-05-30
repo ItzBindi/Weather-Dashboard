@@ -54,17 +54,19 @@ var handleSearch = function(event) {
                     console.log(weatherData, 'working');
                     // console.log('Temp' + ' ' + weatherData.main.temp + '°F','Humidity' + ' ' + weatherData.main.humidity + ' ' + '%','Wind' + ' ' + weatherData.wind.speed + ' ' +'MPH', weatherData.name);
                 
-
+                
                 var temperature = weatherData.main.temp;
                 var humidity = weatherData.main.humidity;
                 var wind = weatherData.wind.speed;
                 var city = weatherData.name;
                 var currentIcon = weatherData.weather[0].icon
                 console.log(currentIcon);
-                var iconURL = document.createElement('img');
-                iconURL.src =  'https://openweathermap.org/img/wn/' + currentIcon + '@2x.png'
+                var iconURL = 'https://openweathermap.org/img/wn/' + currentIcon + '.png'
+                var weatherIcon = document.getElementById('weather-icon');
+                weatherIcon.setAttribute("src", iconURL);
+                console.log(iconURL)
                 currentCity.innerHTML = ''
-                currentCity.appendChild(iconURL);
+                // currentCity.append(weatherIcon);
 
                 // console.log(temperature, humidity, wind, city);
                 currentCity.textContent = city + ' ' + dayjs().format('(M/D/YYYY)')
@@ -89,6 +91,7 @@ var handleSearch = function(event) {
                 for (let i = 0; i < 5; i++) {
                    var card = forecastCards[i];
                     var forecast = forecastData.list[i * 8];
+                    console.log(forecastData.list);
 
                     // console.log(forecastData, 'hello');
 
