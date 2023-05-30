@@ -11,7 +11,7 @@ var forecastCards = document.querySelectorAll('#five-day .card');
 var pastSearches = localStorage.getItem('history')
 var emptyArray = []
 emptyArray.push(pastSearches);
-console.log(emptyArray);
+// console.log(emptyArray);
 
 var handleSearch = function(event) {
     event.preventDefault();
@@ -19,7 +19,7 @@ var handleSearch = function(event) {
 
     var userInput = qInput.value.toLowerCase();
     // console.log(userInput);
-    console.log(pastSearches);
+    // console.log(pastSearches);
     if (emptyArray.includes(userInput) === false) {
         emptyArray.push(userInput);
         localStorage.setItem('history', emptyArray);
@@ -51,7 +51,7 @@ var handleSearch = function(event) {
                     return response.json();
                 })
                 .then(function(weatherData) {
-                    console.log(weatherData, 'working');
+                    // console.log(weatherData, 'working');
                     // console.log('Temp' + ' ' + weatherData.main.temp + '°F','Humidity' + ' ' + weatherData.main.humidity + ' ' + '%','Wind' + ' ' + weatherData.wind.speed + ' ' +'MPH', weatherData.name);
                 
                 
@@ -60,11 +60,11 @@ var handleSearch = function(event) {
                 var wind = weatherData.wind.speed;
                 var city = weatherData.name;
                 var currentIcon = weatherData.weather[0].icon
-                console.log(currentIcon);
+                // console.log(currentIcon);
                 var iconURL = 'https://openweathermap.org/img/wn/' + currentIcon + '.png'
                 var weatherIcon = document.getElementById('weather-icon');
                 weatherIcon.setAttribute("src", iconURL);
-                console.log(iconURL)
+                // console.log(iconURL)
                 currentCity.innerHTML = ''
                 // currentCity.append(weatherIcon);
 
@@ -91,20 +91,25 @@ var handleSearch = function(event) {
                 for (let i = 0; i < 5; i++) {
                    var card = forecastCards[i];
                     var forecast = forecastData.list[i * 8];
-                    console.log(forecastData.list);
+                    // console.log(forecastData.list);
 
                     // console.log(forecastData, 'hello');
 
                     var title = card.querySelector('.card-title');
                     var subtitle = card.querySelector('.card-subtitle');
                     var text = card.querySelector('.card-text');
-                    
-
+                    var forecastIcon = forecast.weather[0].icon
+                    var forecasturl = 'https://openweathermap.org/img/wn/' + forecastIcon + '.png'
+                    var fiveDayicon = document.querySelectorAll('.fivedayicon');
+                    fiveDayicon.forEach(function(iconEl) {
+                        iconEl.setAttribute('src', forecasturl)
+                    })
 
                     title.textContent = 'Date: ' + forecast.dt_txt.slice(5, 10);
                     subtitle.textContent = 'Temp: ' + forecast.main.temp + '°F';
                     text.textContent = 'Humidity: ' + forecast.main.humidity + '%' + ' ' + 'Wind: ' + forecast.wind.speed + 'MPH';
                     // console.log(forecast.dt_txt, "wokring");
+                    console.log(forecast);
 
                 }
             });
