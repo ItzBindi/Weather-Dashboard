@@ -1,32 +1,61 @@
-# Weather-Dashboard
+# Weather Dashboard
 
+A simple weather dashboard that displays current weather information using HTML, CSS, and JavaScript. It utilizes the OpenWeatherMap API for fetching weather data and Bootstrap for styling.
 
-## Description
+## Features
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What motivated me to create this application was to enhance my skills in development and working with API's.
-- The reason I built this was  because it gave me an oppurtunity to go through an API with a lot of data and be able to pull only what I want from it.
-- This solves the problem of planning out your week based on weather conditions.
-
-
-
+- Search for weather information of any city
+- Display current temperature, weather conditions, humidity, and wind speed
+- Show a 5-day forecast with temperature and weather conditions
+- Automatically detects and displays the user's current location weather
 
 ## Installation
 
-No installation steps necessary just click this link and you'll be directed to my application. https://itzbindi.github.io/Weather-Dashboard/
+1. Clone the repository: `git clone https://github.com/your-username/your-repo.git`
+2. Obtain an API key from [OpenWeatherMap](https://openweathermap.org/)
+3. Create a `config.js` file in the project directory and add your API key:
 
+```javascript
+const API_KEY = 'YOUR_API_KEY';
+```
+
+4. Open `index.html` in your web browser or host the project on a web server.
 
 ## Usage
 
-When page is loaded you will see a search bar. Enter a city name and then click the search button. You will then be prompted with the current weather along with the 5 day forecast for that city. 
+1. Enter a city name in the search bar and click the search button.
+2. The current weather information for the entered city will be displayed.
+3. Scroll down to view the 5-day forecast.
 
-## Credits
+## Technologies Used
 
-https://openweathermap.org/api
+- HTML
+- CSS
+- JavaScript
+- OpenWeatherMap API
+- Bootstrap
 
-https://day.js.org/en/
+## Screenshots
+![screenshot-2023-08-31-09-19-27](https://github.com/ItzBindi/Weather-Dashboard/assets/82546293/384e4745-0232-4707-825c-08ee56dcb0b4)
 
+
+
+## Demo
+
+Check out the live demo of the Weather Dashboard at [[https://your-weather-dashboard-demo.com](https://your-weather-dashboard-demo.com).](https://itzbindi.github.io/Weather-Dashboard/)
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute to the project, please follow these steps:
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes and commit them.
+4. Push your changes to your forked repository.
+5. Open a pull request.
+
+## License
+
+N/A
 
 
 
